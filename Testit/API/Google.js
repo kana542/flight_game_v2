@@ -1,15 +1,14 @@
-let map, panorama;
+let google_maps, Street;
 
 function initMap() {
-    const initialLocation = {lat: -34.397, lng: 150.644}; // Coordinates can be set as constants
+    const initialLocation = {lat: -34.397, lng: 150.644};
 
-    // The map and panorama may be reassigned, hence let is used
-    map = new google.maps.Map(document.getElementById('map'), {
+    google_maps = new google.maps.Map(document.getElementById('map'), {
         center: initialLocation,
         zoom: 8
     });
 
-    panorama = new google.maps.StreetViewPanorama(
+    Street = new google.maps.StreetViewPanorama(
         document.getElementById('street-view'), {
             position: initialLocation,
             pov: {
@@ -19,5 +18,5 @@ function initMap() {
         }
     );
 
-    map.setStreetView(panorama);
+    google_maps.setStreetView(Street);
 }

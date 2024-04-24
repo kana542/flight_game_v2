@@ -24,7 +24,6 @@ function initMap() {
 
 //
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("commandButton").textContent = 'Test';
     document.getElementById("commandButton").onclick = function () {
         document.getElementById("Popup_test").style.display = 'block';
     };
@@ -32,7 +31,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function submitCommand() {
     const command = document.getElementById("commandInput").value;
-    console.log(command);
-    // You might want to hide the commandPopup after submission
     document.getElementById("Popup_test").style.display = 'none';
 }

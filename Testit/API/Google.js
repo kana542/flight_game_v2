@@ -1,3 +1,4 @@
+'use strict';
 let google_maps, Street;
 
 function initMap() {
@@ -19,4 +20,18 @@ function initMap() {
     );
 
     google_maps.setStreetView(Street);
+}
+
+//
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("commandButton").onclick = function () {
+        document.getElementById("Popup_test").style.display = 'block';
+    };
+});
+
+function submitCommand() {
+    var command = document.getElementById("commandInput").value;
+    console.log(command);
+    // You might want to hide the commandPopup after submission
+    document.getElementById("Popup_test").style.display = 'none';
 }

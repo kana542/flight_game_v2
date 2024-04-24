@@ -1,7 +1,8 @@
 'use strict';
 let google_maps, Street;
-
-function initMap() {
+console.log("Defining initMap...");
+async function initMap() {
+    console.log("initMap is called");
     const initialLocation = {lat: -34.397, lng: 150.644};
 
     google_maps = new google.maps.Map(document.getElementById('map'), {

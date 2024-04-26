@@ -7,3 +7,5 @@
 * #Dark blue : #071330
 
 * https://www.canva.com/colors/color-palettes/mountain-haze/
+
+* Nightmode karttaan: https://developers.google.com/maps/documentation/javascript/examples/style-array

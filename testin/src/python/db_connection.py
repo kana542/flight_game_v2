@@ -19,10 +19,10 @@ def airport_location():
         ) as db:
             with db.cursor() as cursor:
                 sql = """
-                SELECT c.iso_country, a.name, a.latitude_deg, a.longitude_deg
-                FROM country AS c
-                JOIN airport AS a ON c.iso_country = a.iso_country
-                WHERE c.continent = 'EU' AND a.type != 'closed'
+                SELECT iso_country, name, latitude_deg, longitude_deg
+                FROM country
+                JOIN airport ON country.iso_country = airport.iso_country
+                WHERE country.continent = 'EU' AND airport.type != 'closed'
                 ORDER BY RAND()
                 LIMIT 1;
                 """

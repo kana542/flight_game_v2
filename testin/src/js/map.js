@@ -31,27 +31,3 @@ function initMap() {
         fullscreenControl: false,
         disableDefaultUI: true                
     });
-
-    // Muuttuja, joka säilyttää viitteen luotuun merkkiin
-    let currentMarker = null;
-
-    // Lisätään klikkauskuuntelija kartalle
-    map.addListener('click', function(e) {
-        const selectedLocation = e.latLng;
-
-        // Jos merkki on jo olemassa, poista se
-        if (currentMarker) {
-            currentMarker.setMap(null);
-        }
-
-        // Luo uusi merkki kartalle
-        currentMarker = new google.maps.Marker({
-            position: selectedLocation,
-            map: map,
-            title: 'Valittu sijainti'
-        });
-
-        // Voit käyttää 'selectedLocation'-muuttujaa tarvittaessa
-        console.log('Valittu sijainti:', selectedLocation.toString());
-    });
-}

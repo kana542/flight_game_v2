@@ -26,11 +26,12 @@ def airport_location():
                 ORDER BY RAND()
                 LIMIT 1;
                 """
+                
                 cursor.execute(sql)
                 result = cursor.fetchone()
 
                 if result is None:
-                    raise Exception("No airport found.")
+                    raise Exception("Error: no airport found.")
                 
                 iso_country, airport_name, latitude, longitude = result
                 
@@ -42,6 +43,7 @@ def airport_location():
     except Exception as err:
         print(f"Error: {err}")
 
+    # if everything works, returns the data
     return {
         "Country": iso_country,
         "Airport Name": airport_name,

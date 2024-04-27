@@ -1,9 +1,9 @@
 function initMap() {
-    // sijannit
+    // Sijainnit
     const location = { lat: 60.1699, lng: 24.9384 };
     const centerLocation = { lat: 20, lng: 0 };
 
-    // alustetaan/luodaan street view
+    // Alustetaan/luodaan street view
     const panorama = new google.maps.StreetViewPanorama(
         document.getElementById('street-view'), {
             position: location,
@@ -20,7 +20,7 @@ function initMap() {
         }
     );
 
-    // alustetaan/luodaan 2d kartta
+    // Alustetaan/luodaan 2D kartta
     const map = new google.maps.Map(document.getElementById('map'), {
         center: centerLocation,
         zoom: 2.5,
@@ -31,4 +31,3 @@ function initMap() {
         fullscreenControl: false,
         disableDefaultUI: true                
     });
-}

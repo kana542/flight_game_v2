@@ -1,0 +1,22 @@
+html, body {
+    height: 100%; /* Asettaa korkeuden 100% näytön korkeudesta */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Estää vierityksen koko sivulla */
+}
+
+#street-view { 
+    height: 100vh; /* Vähentää 40px korkeudesta, olettaen että yläreunassa on jotain sisältöä */
+    width: 100vw;
+}
+
+#map {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 500px;
+    height: 550px;
+    z-index: 5;
+    border: 6px solid black;
+    border-radius: 25px;
+}

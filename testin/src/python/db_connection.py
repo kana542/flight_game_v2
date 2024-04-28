@@ -19,7 +19,7 @@ def airport_location():
         ) as db:
             with db.cursor() as cursor:
                 sql = """
-                SELECT iso_country, name, latitude_deg, longitude_deg
+                SELECT country.iso_country, airport.name, airport.latitude_deg, airport.longitude_deg
                 FROM country
                 JOIN airport ON country.iso_country = airport.iso_country
                 WHERE country.continent = 'EU' AND airport.type != 'closed'

@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from db_connection import airport_location
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/fetch_airport')
 
@@ -14,4 +16,4 @@ def fetch_airport():
         return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

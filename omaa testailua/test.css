@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+    background-image: url('img.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.big-box {
+    position: relative;
+    width: 75%;
+    height: 75%;
+    border: 8px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    backdrop-filter: blur(3px);
+}
+
+.middlebox {
+    width: 40%; /* Adjust width as needed */
+    height: calc(10% - 40px); /* Adjust height as needed */
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    border: 6px solid black;
+    border-radius: 5px;
+    backdrop-filter: blur(3px);
+}
+/*leftbox input box*/
+#countryInput {
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-bottom: 100px;
+    width: calc(100% - 180px); /* Adjust width as needed */
+    bottom: 5px;
+}
+
+#checkButton {
+    padding: 10px 20px;
+    border: 1px solid white; /* Change border color to white */
+    border-radius: 5px;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    bottom: 5px;
+}
+
+#checkButton:hover {
+    background-color: cornflowerblue;
+}
+
+.mapbox {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40%;
+    height: calc(50% - 40px);
+    border: 4px solid black; /* Border added here */
+    border-radius: 50px;
+    overflow: hidden; /* Ensure the iframe does not overflow */
+}
+
+.mapbox iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+
+

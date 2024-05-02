@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <title>penis</title>
     <link rel="stylesheet" href="style.css">
-    <script src="/src/js/app.js"></script>
-    <script src="/src/js/map.js"></script>
+    <script src="./app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL3BA-S0Q3DKyGnxUmnRKOg3GIaTaIrk&callback=initMap" async defer></script>
 </head>
 <body>
     <div id="street-view"></div>
     <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=APIKEY&callback=initMap" async defer></script>
+    <div id="score">
+        <p>Score: <span id="score-value">0</span></p>
+        <p>Round: <span id="round-number">0</span></p>
+        <button id="guess-button">Guess</button>
+    </div>
 </body>
 </html>

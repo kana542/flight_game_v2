@@ -74,29 +74,24 @@ function initMap(latitude, longitude) {
     });
 
     map.setStreetView(panorama);
+}
 
-    map.addListener('click', function(e) {
-        if (tempMarker) {
-            tempMarker.setMap(null);
-        }
+function setMapMarker() {
+}
 
-        tempMarker = new google.maps.Marker({
-            position: e.latLng,
-            map: map
-        });
+function calculateDistance() {
+}
 
-        markerLocation = {
-            latitude: e.latLng.lat(),
-            longitude: e.latLng.lng()
-        };
+function updateScore() {
+}
 
-        map.panTo(e.latLng);
-    });
+function handleGuess() {
+}
 
-    document.getElementById('guess-button').addEventListener('click', function() {
-        endRound(location);
-    });
+function nextRound() {
+}
 
+function endGame() {
 }
 
 startGame();

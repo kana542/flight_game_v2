@@ -4,8 +4,10 @@ import bcrypt
 import logging
 
 app = Flask(__name__)
+
+# Database configuration
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_PASSWORD'] = 'password'  # Be sure this matches your real password
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_DB'] = 'flight_game'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
@@ -22,13 +24,18 @@ def signup():
 
         cur = mysql.connection.cursor()
         try:
-            cur.execute("INSERT INTO users(username, password) VALUES(%s, %s)", (username, hashed_password.decode('utf-8')))
+            # Insert the new user into the database, highscore will default to 0
+            cur.execute("INSERT INTO users(username, password) VALUES(%s, %s)",
+                        (username, hashed_password.decode('utf-8')))
             mysql.connection.commit()
             cur.close()
-            return redirect(url_for('login'))
+            return redirect(url_for('login'))  # Ensure there is a 'login' route handling
         except Exception as e:
             logging.error(f"Signup failed: {e}")
             mysql.connection.rollback()
             return "Signup failed, username may already be taken"
 
     return render_template('signup.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

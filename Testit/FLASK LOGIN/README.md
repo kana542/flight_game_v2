@@ -1,7 +1,7 @@
 
 ***Mitä on tehty***
 
-Flask rekisteröinti, kirjautuminen ja pisteiden haku tietokannasta pohjat ovat nyt luotu.
+Flask rekisteröinti, kirjautuminen ja pisteiden haku tietokannasta testipohjat ovat nyt luotu.
 
 Uuden pöydän luonti tapahtuu tällä koodilla testausta varten:
 
@@ -16,4 +16,4 @@ CREATE TABLE new_user_score (
 
 ***Mitä ei ole vielä tehty***
 
-Highscore-listan näkyvyys, monen käyttäjän ja niiden tuloksien haku järjestyksessä, sekä varsinainen implementointi varsinaiseen sivuun.
+käytännössä kaikki

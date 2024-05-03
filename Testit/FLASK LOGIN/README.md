@@ -3,7 +3,7 @@
 
 Flask rekisteröinti, kirjautuminen ja pisteiden haku tietokannasta pohjat ovat nyt luotu.
 
-Uuden pöydän luonti tapahtuu tällä koodilla:
+Uuden pöydän luonti tapahtuu tällä koodilla testausta varten:
 
 CREATE TABLE new_user_score (
     id int(11) NOT NULL AUTO_INCREMENT,

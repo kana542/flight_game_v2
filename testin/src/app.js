@@ -1,9 +1,8 @@
 // GLOBAALIT MUUTTUJAT
 let currentRound = 0;
 const maxRounds = 5;
-
-let tempMarker = null;
-let markerLocation = null;
+let currentMarker = null;
+let map = null;
 
 // FUNKTIOT
 function startGame() {
@@ -13,9 +12,6 @@ function startGame() {
 
 function startRound(latitude, longitude) {
     initMap(latitude, longitude);
-}
-
-function endRound() {
 }
 
 function fetchAndCheck() {
@@ -50,7 +46,7 @@ function checkStreetView(latitude, longitude) {
 function initMap(latitude, longitude) {
     const location = new google.maps.LatLng(latitude, longitude);
 
-    const map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 30.000000, lng: 31.000000 },
         zoom: 3,
         streetViewControl: false,
@@ -74,24 +70,73 @@ function initMap(latitude, longitude) {
     });
 
     map.setStreetView(panorama);
-}
 
-function setMapMarker() {
-}
-
-function calculateDistance() {
-}
-
-function updateScore() {
+    map.addListener('click', function(e) {
+        setMapMarker(e.latLng, map);
+    });
 }
 
 function handleGuess() {
+    const correctLocation = new google.maps.LatLng(storedLatitude, storedLongitude);
+    const guessedLocation = currentMarker.getPosition();
+
+    drawLine(correctLocation, guessedLocation);
+
+    // Laske pisteet
+    const distance = calculateDistance(correctLocation, guessedLocation);
+    updateScore(distance);
+
+    // Siirry seuraavaan kierrokseen
+    nextRound();
+}
+
+function setMapMarker(position, map) {
+    if (currentMarker) {
+        currentMarker.setMap(null);
+    }
+
+    currentMarker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+
+    console.log(`Marker placed at: ${position.lat()}, ${position.lng()}`);
+}
+
+function calculateDistance(location1, location2) {
+    return google.maps.geometry.spherical.computeDistanceBetween(location1, location2);
+}
+
+function updateScore(distance) {
+    const points = Math.max(0, 10000 - distance / 100); // Esimerkkipistemäärän laskukaava
+    const scoreElement = document.getElementById('score-value');
+    const currentScore = parseInt(scoreElement.innerText, 10);
+    scoreElement.innerText = currentScore + points;
+}
+
+function drawLine(start, end) {
+    const linePath = new google.maps.Polyline({
+        path: [start, end],
+        geodesic: true,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        map: map
+    });
 }
 
 function nextRound() {
+    if (currentRound < maxRounds) {
+        currentRound++;
+        document.getElementById('round-number').innerText = currentRound;
+        fetchAndCheck(); // Käynnistä uusi kierros
+    } else {
+        endGame();
+    }
 }
 
 function endGame() {
+    console.log("Peli päättyi!");
 }
 
 startGame();

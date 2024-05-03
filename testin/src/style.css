@@ -26,11 +26,11 @@ html, body {
     top: 2%;
     right: 1%;
     width: 150px;
-    height: 100px;
+    height: 110px;
     background-color: #2c3047;
     z-index: 6;
     border: 6px solid black;
-    border-radius: 25px;
+    border-radius: 15px;
     color: white;
     padding: 5px;
     display: flex;
@@ -48,7 +48,7 @@ html, body {
     margin: auto;
     font-size: 18px;
     border: none;
-    border-radius: 10px;
+    border-radius: 7px;
     background-color: #4a4f77;
     color: white;
     cursor: pointer;

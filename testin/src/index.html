@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>GeoGuessr Clone</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL3BA-S0Q3DKyGnxUmnRKOg3GIaTaIrk&libraries=geometry&callback=initMap" async defer></script>
 </head>
 <body>
     <div id="street-view"></div>
@@ -15,5 +13,13 @@
         <p>Round: <span id="round-number">0</span></p>
         <button id="guess-button">Guess</button>
     </div>
+    <div id="roundResult">
+        <h2>Arvauksen Tulos</h2>
+        <p id="distanceDisplay">Distance: </p>
+        <p id="scoreDisplay">Points: </p>
+        <button id="continue-button">Continue</button>
+      </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL3BA-S0Q3DKyGnxUmnRKOg3GIaTaIrk&libraries=geometry&callback=initMap" async defer></script>
+    <script src="./app.js"></script>
 </body>
 </html>

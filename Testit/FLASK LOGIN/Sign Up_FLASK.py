@@ -18,18 +18,18 @@ def get_db_connection():
 def form():
     return render_template('Signup_page_test.html')
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['POST'])  # tämä rekisteröi käyttäjän ja hänen salasanansa tietokantaan
 def submit():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        hashed_password = generate_password_hash(password)  # Hash the password
+        hashed_password = generate_password_hash(password)
 
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute(
             "INSERT INTO user_score (username, password) VALUES (%s, %s)",
-            (username, hashed_password)  # Store the hashed password
+            (username, hashed_password)
         )
         conn.commit()
         cursor.close()
@@ -37,7 +37,7 @@ def submit():
 
         return '<html><head><meta http-equiv="refresh" content="5;url=/login"></head><body><p>Käyttäjä Rekisteröity! Sinut ohjataan kirjautumaan 5 sekunnin kuluttua!</p></body></html>'
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST']) # tällä henkilö kirjautuu olemassaolevalla tunnuksella sisään rekisteröitymisen jälkeen
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -49,9 +49,9 @@ def login():
         cursor.close()
         conn.close()
 
-        if user and check_password_hash(user[0], password):  # Check the hash instead of comparing directly
+        if user and check_password_hash(user[0], password):
             session['username'] = username
-            session['highscore'] = user[1]
+            session['highscore'] = user[1]  #rivit 52-54 ylläpitävät session
             return redirect(url_for('highscore_page1'))
         else:
             return 'Virheellinen Käyttäjä ja/tai salasana.'
@@ -60,14 +60,14 @@ def login():
 @app.route('/highscore_page1')
 def highscore_page1():
     if 'username' in session:
-        return render_template('Highscore_page_test.html', username=session['username'], highscore=session.get('highscore', 'No highscore recorded'))
+        return render_template('Highscore_page_test.html', username=session['username'], highscore=session.get('highscore'))
     else:
         return redirect(url_for('login'))
 
 @app.route('/highscore_page2')
 def highscore_page2():
     if 'username' in session:
-        return render_template('Highscore_page2_test.html', username=session['username'], highscore=session.get('highscore', 'No highscore recorded'))
+        return render_template('Highscore_page2_test.html', username=session['username'], highscore=session.get('highscore'))
     else:
         return redirect(url_for('login'))
 

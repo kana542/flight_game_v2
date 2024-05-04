@@ -16,4 +16,4 @@ CREATE TABLE new_user_score (
 
 ***Mitä ei ole vielä tehty***
 
-käytännössä kaikki
+kirjautumisen tärkein osuus eli session ylläpitäminen

@@ -1,11 +1,7 @@
 
 ***Mitä on tehty***
 
-Flask rekisteröinti, kirjautuminen ja pisteiden haku tietokannasta testipohjat ovat nyt luotu.
-
-Session pitäisi nyt toimia teoriassa, tämän testasin kahdella eri highscore sivulla jossa molemmissa ylläpidetään pelaajan käyttäjänimi ja highscore näkyvissä. 
-
-Session lisäksi loin hashed-salasanoja werkzeug.security kirjaston avulla huvikseen. (tämä ei tarvitse olla varsinaisessa projektissa)
+highscore page 2 nyt tulostaa 5 korkeinta tulosta ja sinun tuloksesi sivussa.
 
 Ennen kuin testaatte koodia pitää luoda uusi pöytä flight_game tietokantaan.
 
@@ -33,7 +29,7 @@ ALTER TABLE user_score AUTO_INCREMENT = 1;
 
 ***Mitä ei ole vielä tehty (nämä asiat ovat minun vastuulla)***
 
-koko highscore listan haku ja niiden järjestykseen laittaminen ei ole vielä luotu, mutta uskon että ei ole kovin vaikea homma. Error handling ei ole myöskään täysin valmis, mutta on nyt väliaikaisesti pienessä prioriteetissa. Koodin luettavuus on myös omasta mielestäni vielä heikommasta päästä, joten se pitäisi parantaa ajan myötä
+Ei mitään mitä olisi minulle tiedossa
 
 ***Mitä voi jo käyttää ja suosittelen muiden testaavan (Erityisesti Frontend)***
 

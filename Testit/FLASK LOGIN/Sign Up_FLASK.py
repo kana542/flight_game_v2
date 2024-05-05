@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.secret_key = 'ERITTÄIN_VAHVA_AVAIN'
 
+
 def get_db_connection():
     connection = mysql.connector.connect(
         host='localhost',
@@ -14,9 +15,11 @@ def get_db_connection():
     )
     return connection
 
+
 @app.route('/')
 def form():
     return render_template('Signup_page_test.html')
+
 
 @app.route('/submit', methods=['POST'])  # tämä rekisteröi käyttäjän ja hänen salasanansa tietokantaan
 def submit():
@@ -27,7 +30,7 @@ def submit():
 
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute(
+        cursor.execute(  # Varsinainen Rekisteröinti tietokantaan
             "INSERT INTO user_score (username, password) VALUES (%s, %s)",
             (username, hashed_password)
         )
@@ -37,7 +40,8 @@ def submit():
 
         return '<html><head><meta http-equiv="refresh" content="5;url=/login"></head><body><p>Käyttäjä Rekisteröity! Sinut ohjataan kirjautumaan 5 sekunnin kuluttua!</p></body></html>'
 
-@app.route('/login', methods=['GET', 'POST']) # tällä henkilö kirjautuu olemassaolevalla tunnuksella sisään rekisteröitymisen jälkeen
+
+@app.route('/login', methods=['GET', 'POST'])  # tällä henkilö kirjautuu olemassaolevalla tunnuksella sisään rekisteröitymisen jälkeen
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -51,11 +55,12 @@ def login():
 
         if user and check_password_hash(user[0], password):
             session['username'] = username
-            session['highscore'] = user[1]  #rivit 52-54 ylläpitävät session
+            session['highscore'] = user[1]  # rivit 52-54 ylläpitävät session
             return redirect(url_for('highscore_page1'))
         else:
             return 'Virheellinen Käyttäjä ja/tai salasana.'
     return render_template('Login_page_test.html')
+
 
 @app.route('/highscore_page1')
 def highscore_page1():
@@ -64,18 +69,36 @@ def highscore_page1():
     else:
         return redirect(url_for('login'))
 
+
 @app.route('/highscore_page2')
 def highscore_page2():
     if 'username' in session:
-        return render_template('Highscore_page2_test.html', username=session['username'], highscore=session.get('highscore'))
+        username = session['username']
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Hakee tuloksen nykyiseltä kirjaudutulta käyttäjältä
+        cursor.execute("SELECT highscore FROM user_score WHERE username = %s", (username,))
+        user_highscore = cursor.fetchone()[0]
+
+        # Hakee tuloksen kaikilta käyttäjiltä
+        cursor.execute("SELECT username, highscore FROM user_score ORDER BY highscore DESC LIMIT 5")
+        highscores = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return render_template('Highscore_page2_test.html', username=username, highscore=user_highscore, highscores=highscores)
     else:
         return redirect(url_for('login'))
+
 
 @app.route('/logout')
 def logout():
     session.pop('username', None)
-    session.pop('highscore', None)  #rivit 75-76 tyhjentävät session
+    session.pop('highscore', None)  # rivit 75-76 tyhjentävät session
     return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

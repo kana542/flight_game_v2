@@ -6,8 +6,21 @@
 </head>
 <body>
     <h1>Tervetuloa, {{ username }}</h1>
-    <p>Sinun Korkein tuloksesi: {{ highscore }}</p>
-    <a href="/highscore_page1" style="margin-left:10px;"><button type="button">Edellinen sivu</button></a>
-    <a href="/logout" style="margin-left:10px;"><button type="button">Kirjaudu ulos</button></a>
+        <p>Sinun Korkein tuloksesi: {{ highscore }}</p>
+    <h2>Kaikki Korkeimmat Tulokset:</h2>
+    <table>
+        <tr>
+            <th>Käyttäjä</th>
+            <th>Korkeintulos</th>
+        </tr>
+        {% for score in highscores %}
+        <tr>
+            <td>{{ score[0] }}</td>
+            <td>{{ score[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/highscore_page1" style="margin-left:10px;"><button type="button">Previous Page</button></a>
+    <a href="/logout" style="margin-left:10px;"><button type="button">Log Out</button></a>
 </body>
 </html>

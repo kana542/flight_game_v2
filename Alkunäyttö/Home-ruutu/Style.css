@@ -11,9 +11,9 @@ body {
     bottom: 0; /* Asetetaan alareunaan */
     left: 50%; /* Keskitytään horisontaalisesti */
     transform: translateX(-50%); /* Keskitys korjattu horisontaalisesti */
-    width: 100%; /* Leveys koko sivun levyinen */
+    width: 20%; /* Leveys koko sivun levyinen */
     text-align: center; /* Tekstit keskitetään */
-    background: rgba(0, 0, 0, 0.8); /* Taustaväri musta, hieman läpinäkyvä */
+    background: rgba(7, 19, 48, 0.7); /* Taustaväri musta, hieman läpinäkyvä */
     padding: 1rem 0; /* Pystysuuntainen padding */
     box-shadow: 0 -5px 10px rgba(0,0,0,0.2); /* Varjo yläpuolella */
     z-index: 1000; /* Varmistetaan että se on päällimmäisenä */

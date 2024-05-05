@@ -1,10 +1,13 @@
 body {
-    background-image: url('');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #0C4160;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-
 
 .menu {
     position: fixed; /* Vaihda absolute fixed:ksi */
@@ -17,6 +20,7 @@ body {
     padding: 1rem 0; /* Pystysuuntainen padding */
     box-shadow: 0 -5px 10px rgba(0,0,0,0.2); /* Varjo yläpuolella */
     z-index: 1000; /* Varmistetaan että se on päällimmäisenä */
+    list-style: none;
 }
 
 .menu a {

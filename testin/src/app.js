@@ -24,12 +24,11 @@ const gameState = {
 
     // kierroksen aloittaminen annetuilla sijaintitiedoilla
     startRound: function(latitude, longitude) {
-        this.initMap(latitude, longitude);  // alustetaan kartta annetuilla koordinaateilla
+        this.initMap(latitude, longitude);
     },
 
-    // tiedonhaku ja tarkistusfunktio
+    // tiedonhaku ja tarkistus
     async fetchAndCheck(retryCount) {
-        // fetch yritysten maksimimäärä
         const maxRetries = 3;
         try {
             const response = await fetch('http://127.0.0.1:5000/fetch_airport');
@@ -60,9 +59,7 @@ const gameState = {
 
     // street view tarkistus että onko mahdollista tietokannasta saaduille koordinaateille
     checkStreetView: function(latitude, longitude) {
-         // luodaan street view -palvelu
         const sv = new google.maps.StreetViewService();
-         // luodaan sijainti
         const location = new google.maps.LatLng(latitude, longitude);
 
         // nyt en oo kyllä itekkää täysin varma toimiiko kunnolla, googlen docseissa käytetty then/catch

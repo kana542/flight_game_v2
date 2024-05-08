@@ -30,7 +30,21 @@ def submit():
 
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute(  # Varsinainen Rekisteröinti tietokantaan
+
+        # Tarkista, onko taulu olemassa ja luo se tarvittaessa
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS user_score (
+                id int(11) NOT NULL AUTO_INCREMENT,
+                username varchar(255) NOT NULL,
+                password varchar(255) NOT NULL,
+                highscore int(11) DEFAULT 0,
+                PRIMARY KEY (id),
+                UNIQUE KEY (username)
+            );
+        """)
+
+        # Varsinainen Rekisteröinti tietokantaan
+        cursor.execute(
             "INSERT INTO user_score (username, password) VALUES (%s, %s)",
             (username, hashed_password)
         )
@@ -39,6 +53,7 @@ def submit():
         conn.close()
 
         return '<html><head><meta http-equiv="refresh" content="5;url=/login"></head><body><p>Käyttäjä Rekisteröity! Sinut ohjataan kirjautumaan 5 sekunnin kuluttua!</p></body></html>'
+
 
 
 @app.route('/login', methods=['GET', 'POST'])  # tällä henkilö kirjautuu olemassaolevalla tunnuksella sisään rekisteröitymisen jälkeen

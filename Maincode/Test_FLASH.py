@@ -1,25 +1,13 @@
-from flask import Flask, request, render_template, session, redirect, url_for
-import mysql.connector
+from flask import Flask, jsonify, request, render_template, session, redirect, url_for
+from db_utils import fetch_random_airport, init_db_connection
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__, template_folder='HTML')
 app.secret_key = 'ERITTÄIN_VAHVA_AVAIN'
 
-
-def get_db_connection():
-    connection = mysql.connector.connect(
-        host='localhost',
-        database='flight_game',
-        user='root',
-        password='ROOT'
-    )
-    return connection
-
-
 @app.route('/')
 def form():
     return render_template('Signup_page_test.html')
-
 
 @app.route('/submit', methods=['POST'])  # tämä rekisteröi käyttäjän ja hänen salasanansa tietokantaan
 def submit():
@@ -28,7 +16,7 @@ def submit():
         password = request.form['password']
         hashed_password = generate_password_hash(password)
 
-        conn = get_db_connection()
+        conn = init_db_connection()
         cursor = conn.cursor()
 
         # Tarkista, onko taulu olemassa ja luo se tarvittaessa
@@ -54,14 +42,12 @@ def submit():
 
         return '<html><head><meta http-equiv="refresh" content="5;url=/login"></head><body><p>Käyttäjä Rekisteröity! Sinut ohjataan kirjautumaan 5 sekunnin kuluttua!</p></body></html>'
 
-
-
 @app.route('/login', methods=['GET', 'POST'])  # tällä henkilö kirjautuu olemassaolevalla tunnuksella sisään rekisteröitymisen jälkeen
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        conn = get_db_connection()
+        conn = init_db_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT password, highscore FROM user_score WHERE username = %s", (username,))
         user = cursor.fetchone()
@@ -84,12 +70,23 @@ def Main_Page():
     else:
         return redirect(url_for('login'))
 
+@app.route('/fetch_airport')
+def fetch_airport():
+    data = fetch_random_airport()  # assuming fetch_random_airport is imported
+    return jsonify(data)
+
+@app.route('/Peli')
+def Peli():
+    if 'username' in session:
+        return render_template('BUENIS.html', username=session['username'], highscore=session.get('highscore'))
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/highscore_page')
 def highscore_page2():
     if 'username' in session:
         username = session['username']
-        conn = get_db_connection()
+        conn = init_db_connection()
         cursor = conn.cursor()
 
         # Hakee tuloksen nykyiseltä kirjaudutulta käyttäjältä
@@ -119,7 +116,6 @@ def logout():
     session.pop('username', None)
     session.pop('highscore', None)  # rivit 75-76 tyhjentävät session
     return redirect(url_for('login'))
-
 
 if __name__ == '__main__':
     app.run(debug=True)

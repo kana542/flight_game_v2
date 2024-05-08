@@ -1,24 +1,31 @@
-<!DOCTYPE html>                  <!--PLACEHOLDER-->
+<!DOCTYPE html>
+<!--PLACEHOLDER-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Register User Score</title>
+    <link rel="stylesheet" href="../static/css/signupStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <!--Sivua voi tyylitellä vapaasti, kunhan pää rekisteröinti/kirjautuminen toiminnot pysyvät-->
 
 <body>
-    <h1>Rekisteröi käyttäjä</h1>
-    <form action="/submit" method="post">
-        <label for="username">Käyttäjä: </label>
-        <input type="text" id="username" name="username" required><br><br>
+    <div class="centerBox">
+        <h1>Rekisteröi käyttäjä</h1>
+        <form action="/submit" method="post">
+            <label for="username">Käyttäjä: </label>
+            <input type="text" id="username" name="username" required><br><br>
 
-        <label for="password">Salasana: </label>
-        <input type="password" id="password" name="password" required><br><br>
+            <label for="password">Salasana: </label>
+            <input type="password" id="password" name="password" required><br><br>
 
-        <button type="submit">Rekisteröi</button>
+            <button type="submit">Rekisteröi</button>
 
-        <a href="/login" style="margin-left:10px;"><button type="button">Kirjaudu</button></a>
-    </form>
+            <a href="/login" style="margin-left:10px;"><button type="button">Kirjaudu</button></a>
+        </form>
+    </div>
 </body>
 </html>

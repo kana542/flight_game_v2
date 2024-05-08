@@ -5,15 +5,6 @@ highscore page 2 nyt tulostaa 5 korkeinta tulosta ja sinun tuloksesi sivussa.
 
 Ennen kuin testaatte koodia pitää luoda uusi pöytä flight_game tietokantaan.
 
-Uuden pöydän luonti tapahtuu näillä lauseilla MariaDBssä testausta varten:
-CREATE TABLE new_user_score (
-    id int(11) NOT NULL AUTO_INCREMENT,
-    username varchar(255) NOT NULL,
-    password varchar(255) NOT NULL,
-    highscore int(11) DEFAULT 0,
-    PRIMARY KEY (id),
-    UNIQUE KEY (username)
-);
 
 Tämä lause näyttää kaikki pöydän tiedot ei kokonaisena, mutta luettavana. syynä siksi koska hashed salasana on liian pitkä suoraan tulostukseen:
 SELECT id, username, LEFT(password, 30) AS password, highscore FROM user_score;

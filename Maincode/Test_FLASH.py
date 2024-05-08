@@ -82,6 +82,33 @@ def Peli():
     else:
         return redirect(url_for('login'))
 
+@app.route('/update_highscore', methods=['POST'])
+def update_highscore():
+    if 'username' in session:
+        new_score = request.json['score']
+        username = session['username']
+        conn = init_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch the current highscore to compare
+        cursor.execute("SELECT highscore FROM user_score WHERE username = %s", (username,))
+        current_highscore = cursor.fetchone()[0]
+
+        if new_score > current_highscore:
+            cursor.execute("UPDATE user_score SET highscore = %s WHERE username = %s", (new_score, username))
+            conn.commit()
+            updated = True
+        else:
+            updated = False
+
+        cursor.close()
+        conn.close()
+
+        return jsonify({"updated": updated, "new_highscore": new_score if updated else current_highscore})
+    else:
+        return jsonify({"error": "User not logged in"}), 403
+
+
 @app.route('/highscore_page')
 def highscore_page2():
     if 'username' in session:

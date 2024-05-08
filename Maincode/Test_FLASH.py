@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, session, redirect, url_for
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='HTML')
 app.secret_key = 'ERITTÄIN_VAHVA_AVAIN'
 
 
@@ -71,21 +71,21 @@ def login():
         if user and check_password_hash(user[0], password):
             session['username'] = username
             session['highscore'] = user[1]  # rivit 52-54 ylläpitävät session
-            return redirect(url_for('highscore_page1'))
+            return redirect(url_for('Main_Page'))
         else:
             return 'Virheellinen Käyttäjä ja/tai salasana.'
     return render_template('Login_page_test.html')
 
 
-@app.route('/highscore_page1')
-def highscore_page1():
+@app.route('/Main_page')
+def Main_Page():
     if 'username' in session:
-        return render_template('Highscore_page_test.html', username=session['username'], highscore=session.get('highscore'))
+        return render_template('Front_page.html', username=session['username'], highscore=session.get('highscore'))
     else:
         return redirect(url_for('login'))
 
 
-@app.route('/highscore_page2')
+@app.route('/highscore_page')
 def highscore_page2():
     if 'username' in session:
         username = session['username']
@@ -103,10 +103,16 @@ def highscore_page2():
         cursor.close()
         conn.close()
 
-        return render_template('Highscore_page2_test.html', username=username, highscore=user_highscore, highscores=highscores)
+        return render_template('Highscore_page_test.html', username=username, highscore=user_highscore, highscores=highscores)
     else:
         return redirect(url_for('login'))
 
+@app.route('/tutorial')
+def tutorial():
+    if 'username' in session:
+        return render_template('Tutorial.html', username=session['username'])
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():

@@ -236,6 +236,7 @@ document.getElementById('continue-button').addEventListener('click', function() 
     if (this.innerText === "New Game") {
         document.getElementById('score-value').textContent = '0';
         document.getElementById('round-number').textContent = '0';
+        document.getElementById('main-menu-button').style.display = 'none';
 
         gameState.currentRound = 0;
         gameState.guessMade = false;

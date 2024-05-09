@@ -11,20 +11,24 @@
 <body>
 <div class="centerBox">
     <div id="kaikkiFontit">
-        <h1>Rekisteröi käyttäjä</h1>
+        <h1>Register new account</h1>
         <form action="/submit" method="post">
-            <label for="username">Käyttäjä: </label>
+            <label for="username">Username: </label>
             <input type="text" id="username" name="username" required><br><br>
 
-            <label for="password">Salasana: </label>
+            <label for="password">Password: </label>
             <input type="password" id="password" name="password" required><br><br>
 
             {% if error %}
             <div style="color: red; margin-bottom: 10px;">{{ error }}</div>
             {% endif %}
+<<<<<<< HEAD
+            <button type="submit">Register</button>
+=======
 
             <button type="submit">Rekisteröi</button>
-            <a href="/login" style="margin-left:10px;"><button type="button">Kirjaudu</button></a>
+            <a href="/login"><button type="button">Kirjaudu</button></a>
+>>>>>>> d5b039e32e122e6c45272cd0eda041a07f7d80b2
         </form>
     </div>
 </div>

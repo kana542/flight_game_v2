@@ -10,12 +10,9 @@ body {
 }
 
 .centerBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20%;
-    padding: 2%; 
+    width: 90%; /* Adjust width for different screen sizes */
+    max-width: 400px; /* Limit maximum width */
+    padding: 2%;
     background-color: rgba(33, 29, 73, 0.877);
     border: 5px solid rgba(0, 255, 197, 0.71);
     backdrop-filter: blur(2px);
@@ -25,14 +22,10 @@ body {
 
 #kaikkiFontit {
     color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
 
 input {
-    width: 80%;
+    width: 45%;
     padding: 8px;
     margin: 10px 0;
     box-sizing: border-box;
@@ -43,7 +36,7 @@ input {
 }
 
 button {
-    width: 50%;
+    width: 25%;
     padding: 10px 20px;
     margin-top: 20px;
     font-size: 18px;
@@ -62,12 +55,12 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 100%; /* Make form take full width */
 }
 
 .error-message {
     color: red;
-    font-size: 1rem; /* Sopiva fonttikoko */
-    margin-top: 20px; /* Tilaa virheviestin yläpuolelle */
-    margin-bottom: 10px; /* Tilaa alapuolelle, juuri ennen nappeja */
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

@@ -97,7 +97,7 @@ nav a:hover {
 
 #guess-button {
     padding: 10px 20px;
-    margin-top: 60px; /* Adjust the top margin a    s needed */
+    margin-top: 60px;
     margin: auto;
     font-size: 18px;
     border: 3px solid rgba(20, 39, 35, 0.73);
@@ -109,7 +109,7 @@ nav a:hover {
 }
 
 #guess-button:hover {
-    background-color: rgba(0, 0, 0, 0.6); /* Change border color on hover */
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 #roundResult {
@@ -132,23 +132,23 @@ nav a:hover {
 
 
 #roundResult button {
-    background-color: rgba(0, 0, 0, 0.3); /* Change background color */
-    color: white; /* Change text color */
-    border: 3px solid rgba(20, 39, 35, 0.73); /* Remove border */
-    border-radius: 5px; /* Add border-radius for rounded corners */
-    padding: 10px 20px; /* Add padding */
-    font-size: 18px; /* Adjust font size */
-    cursor: pointer; /* Add pointer cursor on hover */
-    margin-top: 10px; /* Add margin top to create space */
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: 3px solid rgba(20, 39, 35, 0.73);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
     transition: background-color 0.3s;
 }
 
 #roundResult button:hover {
-    background-color: rgba(0, 0, 0, 0.6); /* Change border color on hover */
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 
-.bigBox {        /*voit säätää boxin kokoa ja kaikki muut map, score jne.liikku sen mukana */
+.bigBox {
     width: 80%;
     height: 80%;
     border: 5px solid rgba(20, 39, 35, 0.73);
@@ -156,5 +156,24 @@ nav a:hover {
     border-radius: 20px;
 }
 
+#endResult {
+    position: absolute;
+    right: 50%;
+    left: 40%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    z-index: 500;
+    background-color: rgba(20, 39, 35, 0.73);
+    border: 3px solid rgba(20, 39, 35, 0.73);
+    color:white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 15%;
+}
 
-
+#end-score-value {
+    font-size: 20px;
+    margin: 0;
+}

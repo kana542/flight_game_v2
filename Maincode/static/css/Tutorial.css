@@ -32,26 +32,26 @@ header nav {
     padding: 20px;
     width: 80%;
     max-width: 600px;
-    margin: 20px auto; /* Keskittää elementin sivun keskelle */
+    margin: 20px auto;
     background-color: #00FFC5;
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 .tutorial-box:hover {
-    transform: translateY(-5px); /* Nosta lohkoa hieman ylöspäin */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Syvempi varjo hoverilla */
-    border-color: #1B1464; /* Hover-reunaväri */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    border-color: #1B1464;
 }
 .tutorial-box h2 {
     font-size: 1.8rem;
-    color: #071330; /* Tumma otsikkoväri */
+    color: #071330;
     margin-bottom: 10px;
     text-align: center;
 }
 .tutorial-box p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #0C4160; /* Tumma teksti */
+    color: #0C4160;
 }
 ul {
     display: flex;

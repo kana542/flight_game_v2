@@ -37,20 +37,17 @@ body {
     margin-top: 2px;
 }
 
-/* Kohdistetaan h1 ja p sisällöt keskelle */
 .bigBox h1, .bigBox p {
     text-align: center;
     width: 100%;
 }
 
-/* Taulukon tyylit */
 .bigBox table {
     width: 50%;
     border-collapse: collapse;
     margin: 20px auto;
 }
 
-/* Taulukon otsikot */
 .bigBox th {
     background-color: rgba(0, 255, 197, 0.71);
     padding: 8px;
@@ -59,7 +56,6 @@ body {
     font-weight: bold;
 }
 
-/* Taulukon solut */
 .bigBox td {
     border: 1px solid #ddd;
     padding: 8px;
@@ -71,7 +67,6 @@ body {
     color: white;
 }
 
-/* Painikkeiden tyylit */
 .bigBox button {
     margin-top: 10px;
     padding: 10px 20px;

@@ -69,7 +69,7 @@ form {
 
 .error-message {
     color: red;
-    font-size: 1rem; /* Sopiva fonttikoko */
-    margin-top: 20px; /* Tilaa virheviestin yläpuolelle */
-    margin-bottom: 10px; /* Tilaa alapuolelle, juuri ennen nappeja */
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

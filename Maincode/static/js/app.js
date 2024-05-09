@@ -1,5 +1,5 @@
 const gameState = {
-    currentRound: 0,
+    currentRound: 1,
     maxRounds: 5,
     map: null,
     marker: null,
@@ -235,10 +235,10 @@ document.getElementById('guess-button').addEventListener('click', function() {
 document.getElementById('continue-button').addEventListener('click', function() {
     if (this.innerText === "New Game") {
         document.getElementById('score-value').textContent = '0';
-        document.getElementById('round-number').textContent = '0';
+        document.getElementById('round-number').textContent = '1';
         document.getElementById('main-menu-button').style.display = 'none';
 
-        gameState.currentRound = 0;
+        gameState.currentRound = 1;
         gameState.guessMade = false;
         gameState.markerPlaced = false;
 

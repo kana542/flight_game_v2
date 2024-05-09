@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash
 from mysql.connector import IntegrityError, connect
 import mysql.connector
 from mysql.connector import Error
-
+#bueen
 def init_db_connection():
     try:
         return mysql.connector.connect(

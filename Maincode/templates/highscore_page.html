@@ -14,13 +14,13 @@
 
 <body>
 <div class="bigBox">
-    <p id="highestScore"> Sinun korkein tuloksesi: {{ highscore }}</p>
-    <p id="scoreboard">Kaikki Korkeimmat Tulokset:</p>
+    <p id="highestScore"> Your highscore: {{ highscore }}</p>
+    <p id="scoreboard">Scoreboard:</p>
 
     <table id="userHighestScore">
         <tr>
-            <th>Käyttäjä</th>
-            <th>Korkeintulos</th>
+            <th>Username</th>
+            <th>Highest Score</th>
         </tr>
         {% for score in highscores %}
         <tr>
@@ -30,7 +30,7 @@
         {% endfor %}
     </table>
     <a id="previousPage" href="/main_page" style="margin-left:10px;">
-        <button type="button">Previous Page</button>
+        <button type="button">Main Menu</button>
     </a>
 </div>
 

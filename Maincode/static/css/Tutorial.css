@@ -1,10 +1,14 @@
 html, body {
+    font-family: "Saira Condensed", sans-serif;
+    color: white;
+    background-image: url('../images/Skaihookki_3.jpeg');
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color:  #EC008C;
 }
+
 .container {
     width: 100%;
     margin: auto;
@@ -28,16 +32,23 @@ header nav {
     display: flex;
 }
 .tutorial-box {
-    border: 2px solid #738FA7;
+    border: 2px rgba(0, 0, 0, 0.7);
     padding: 20px;
     width: 80%;
     max-width: 600px;
+<<<<<<< HEAD
     margin: 20px auto;
     background-color: #00FFC5;
+=======
+    margin: 20px auto; /* Keskittää elementin sivun keskelle */
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+>>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 .tutorial-box:hover {
+<<<<<<< HEAD
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     border-color: #1B1464;
@@ -45,13 +56,26 @@ header nav {
 .tutorial-box h2 {
     font-size: 1.8rem;
     color: #071330;
+=======
+    transform: translateY(-5px); /* Nosta lohkoa hieman ylöspäin */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Syvempi varjo hoverilla */
+    border-color: rgba(27, 20, 99, 0); /* Hover-reunaväri */
+}
+.tutorial-box h2 {
+    font-size: 1.8rem;
+    color: #ffffff; /* Tumma otsikkoväri */
+>>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
     margin-bottom: 10px;
     text-align: center;
 }
 .tutorial-box p {
     font-size: 1rem;
     line-height: 1.6;
+<<<<<<< HEAD
     color: #0C4160;
+=======
+    color: #ffffff; /* Tumma teksti */
+>>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
 }
 ul {
     display: flex;
@@ -76,7 +100,7 @@ nav a:hover {
     color: #738FA7;
 }
 .tutorial-box {
-    border: 2px solid #738FA7;
+    border: 2px solid rgba(3, 0, 0, 0);
     padding: 20px;
     width: 80%;
     max-width: 600px;
@@ -97,4 +121,70 @@ nav a:hover {
     z-index: 5;
     border: 6px solid black;
     border-radius: 25px;
+<<<<<<< HEAD
+=======
+}
+
+#score {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 150px;
+    height: 110px;
+    background-color: #2c3047;
+    z-index: 6;
+    border: 6px solid black;
+    border-radius: 15px;
+    color: white;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+#guess-button {
+    padding: 10px 20px;
+    margin-top: 60px; /* Säädä tarvittavan tilan mukaan */
+    margin: auto;
+    font-size: 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #071330;
+    color: white;
+    cursor: pointer;
+}
+
+#roundResult {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#previousPage button, #logOut button {
+    margin-top: -10px;
+}
+
+#previousPage button:hover, #logOut button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+>>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
 }

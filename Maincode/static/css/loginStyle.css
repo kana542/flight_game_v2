@@ -3,7 +3,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%; /* Adjust width as needed */
+    width: 20%; /* Adjust width as needed */
     padding: 5%; /* Add padding for better appearance */
     background-color: rgba(27, 20, 100, 0.73);
     border: 5px solid rgba(0, 255, 197, 0.71);

@@ -1,17 +1,55 @@
+from flask import request, make_response
+from werkzeug.security import generate_password_hash
+from mysql.connector import IntegrityError, connect
+import mysql.connector
+from mysql.connector import Error
+
+def init_db_connection():
+    try:
+        return mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="apple13",
+            database="flight_game"
+        )
+    except mysql.connector.Error as err:
+        print(f"DB Connection Error: {err}")
+
+def fetch_random_airport():
+    db_connection = init_db_connection()
+    cursor = db_connection.cursor()
+    cursor.execute("""
+        SELECT country.iso_country, airport.name, airport.latitude_deg, airport.longitude_deg
+        FROM country
+        JOIN airport ON country.iso_country = airport.iso_country
+        WHERE country.continent = 'EU' AND airport.type != 'closed'
+        ORDER BY RAND()
+        LIMIT 1;
+    """)
+    result = cursor.fetchone()
+    cursor.close()
+    db_connection.close()
+
+    if result:
+        iso_country, airport_name, latitude, longitude = result
+        return {
+            "Country": iso_country,
+            "Airport Name": airport_name,
+            "Latitude": latitude,
+            "Longitude": longitude
+        }
+    else:
+        return None
+    
 from flask import Flask, jsonify, request, render_template, session, redirect, url_for
-from db_utils import fetch_random_airport, init_db_connection
 from werkzeug.security import generate_password_hash, check_password_hash
 
-app = Flask(__name__, template_folder='HTML')
+app = Flask(__name__, template_folder='templates')
 app.secret_key = 'ERITTÄIN_VAHVA_AVAIN'
 
 @app.route('/')
 def form():
-    return render_template('Signup_page_test.html')
-
-from flask import request, make_response
-from werkzeug.security import generate_password_hash
-from mysql.connector import IntegrityError, connect
+    return render_template('signup_page.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -44,7 +82,7 @@ def submit():
         except IntegrityError as e:
             if 'Duplicate entry' in str(e) and 'username' in str(e):
                 error_message = 'Käyttäjänimi on jo käytössä. Yritä uudelleen toisella käyttäjänimellä.'
-                return render_template('Signup_page_test.html', error=error_message)
+                return render_template('signup_page.html', error=error_message)
             else:
                 raise
         finally:
@@ -66,18 +104,16 @@ def login():
         if user and check_password_hash(user[0], password):
             session['username'] = username
             session['highscore'] = user[1]
-            return redirect(url_for('Main_Page'))
+            return redirect(url_for('main_page'))
         else:
             error_message = 'Virheellinen käyttäjänimi ja/tai salasana. Yritä uudelleen.'
-            return render_template('Login_page_test.html', error=error_message)  # Pass the error message to the template
-    return render_template('Login_page_test.html', error=None)  # Initially render the page without errors
+            return render_template('login_page.html', error=error_message)  # Pass the error message to the template
+    return render_template('login_page.html', error=None)  # Initially render the page without errors
 
-
-
-@app.route('/Main_page')
-def Main_Page():
+@app.route('/main_page')
+def main_page():
     if 'username' in session:
-        return render_template('Front_page.html', username=session['username'], highscore=session.get('highscore'))
+        return render_template('front_page.html', username=session['username'], highscore=session.get('highscore'))
     else:
         return redirect(url_for('login'))
 
@@ -86,10 +122,10 @@ def fetch_airport():
     data = fetch_random_airport()  # assuming fetch_random_airport is imported
     return jsonify(data)
 
-@app.route('/Peli')
-def Peli():
+@app.route('/game')
+def game():
     if 'username' in session:
-        return render_template('Game.html', username=session['username'], highscore=session.get('highscore'))
+        return render_template('game.html', username=session['username'], highscore=session.get('highscore'))
     else:
         return redirect(url_for('login'))
 
@@ -119,7 +155,6 @@ def update_highscore():
     else:
         return jsonify({"error": "User not logged in"}), 403
 
-
 @app.route('/highscore_page')
 def highscore_page2():
     if 'username' in session:
@@ -138,14 +173,14 @@ def highscore_page2():
         cursor.close()
         conn.close()
 
-        return render_template('Highscore_page_test.html', username=username, highscore=user_highscore, highscores=highscores)
+        return render_template('highscore_page.html', username=username, highscore=user_highscore, highscores=highscores)
     else:
         return redirect(url_for('login'))
 
 @app.route('/tutorial')
 def tutorial():
     if 'username' in session:
-        return render_template('Tutorial.html', username=session['username'])
+        return render_template('tutorial.html', username=session['username'])
     else:
         return redirect(url_for('login'))
 

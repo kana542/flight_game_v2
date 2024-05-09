@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Highscore page 2</title>
+    <title>Highscore</title>
+    <link rel="stylesheet" href="../static/css/highscore.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
 </head>
 
 <!--Sivua voi tyylitellä vapaasti, kunhan tiedonhaku pysyy sivussa-->
 
 <body>
-    <h1>Tervetuloa, {{ username }}</h1>
-        <p>Sinun Korkein tuloksesi: {{ highscore }}</p>
+    <div class = "bigBox">
+        <h1>Tervetuloa, {{ username }}</h1>
+
+        <p id = "highestScore"> Sinun korkein tuloksesi: {{ highscore }}</p>
     <h2>Kaikki Korkeimmat Tulokset:</h2>
-    <table>
+
+    <table id="userHighestScore">
         <tr>
             <th>Käyttäjä</th>
             <th>Korkeintulos</th>
@@ -23,7 +31,9 @@
         </tr>
         {% endfor %}
     </table>
-    <a href="/Main_page" style="margin-left:10px;"><button type="button">Previous Page</button></a>
-    <a href="/logout" style="margin-left:10px;"><button type="button">Log Out</button></a>
+    <a id = "previousPage" href="/Main_page" style="margin-left:10px;"><button type="button">Previous Page</button></a>
+    <a id = "logOut" href="/logout" style="margin-left:10px;"><button type="button">Log Out</button></a>
+    </div>
+
 </body>
 </html>

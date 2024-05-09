@@ -38,6 +38,7 @@ body {
 
 .menu li {
     margin: 15px 0; /* Lisää pystysuoran välin valikkokohteiden väliin */
+    list-style: none;
 }
 
 

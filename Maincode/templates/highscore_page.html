@@ -14,10 +14,8 @@
 
 <body>
 <div class="bigBox">
-    <h1>Tervetuloa, {{ username }}</h1>
-
     <p id="highestScore"> Sinun korkein tuloksesi: {{ highscore }}</p>
-    <h2>Kaikki Korkeimmat Tulokset:</h2>
+    <p id="scoreboard">Kaikki Korkeimmat Tulokset:</p>
 
     <table id="userHighestScore">
         <tr>
@@ -33,9 +31,6 @@
     </table>
     <a id="previousPage" href="/main_page" style="margin-left:10px;">
         <button type="button">Previous Page</button>
-    </a>
-    <a id="logOut" href="/logout" style="margin-left:10px;">
-        <button type="button">Log Out</button>
     </a>
 </div>
 

@@ -76,9 +76,9 @@ body {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 18px;
-    border: 3px solid black;
+    border: 3px solid rgba(0, 255, 197, 0.71);
     border-radius: 7px;
-    background-color: #071330;
+    background-color: #1b1464;
     color: white;
     cursor: pointer;
 }
@@ -88,5 +88,5 @@ body {
 }
 
 #previousPage button:hover, #logOut button:hover {
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgb(236, 0, 140);
 }

@@ -6,7 +6,7 @@ html, body {
     font-family: "Saira Condensed", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-image: url('../images/Skaihookki_2.png');
+    background-image: url('../images/Skaihookki_4.jpeg');
 }
 .container {
     display: grid;
@@ -67,13 +67,10 @@ nav a:hover {
     width: 30%;
     height: 40%;
     z-index: 5;
-    border: 3px solid rgba(0, 255, 197, 0.71);
+    border: 3px solid rgba(20, 39, 35, 0.73);
     border-radius: 25px;
 }
 
-#map:hover{
-    border-color: #ec008c;
-}
 
 #score {
     position: absolute;
@@ -81,9 +78,9 @@ nav a:hover {
     right: 5px;
     width: 150px;
     height: 110px;
-    background-color: #1b1464;
+    background-color: rgba(20, 39, 35, 0.73);
     z-index: 6;
-    border: 3px solid rgba(0, 255, 197, 0.71);
+    border: 3px solid rgba(20, 39, 35, 0.73);
     border-radius: 15px;
     color: white;
     padding: 5px;
@@ -103,15 +100,16 @@ nav a:hover {
     margin-top: 60px; /* Adjust the top margin a    s needed */
     margin: auto;
     font-size: 18px;
-    border: 3px solid rgba(0, 255, 197, 0.71);
+    border: 3px solid rgba(20, 39, 35, 0.73);
     border-radius: 7px;
-    background-color: #1b1464;
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #guess-button:hover {
-    border-color: rgb(236, 0, 140); /* Change border color on hover */
+    background-color: rgba(0, 0, 0, 0.6); /* Change border color on hover */
 }
 
 #roundResult {
@@ -122,8 +120,8 @@ nav a:hover {
     top: 50%;
     transform: translate(0%, -50%);
     z-index: 500;
-    background-color: #1b1464;
-    border: 3px solid rgba(0, 255, 197, 0.71);
+    background-color: rgba(20, 39, 35, 0.73);
+    border: 3px solid rgba(20, 39, 35, 0.73);
     color:white;
     padding: 5px;
     border-radius: 10px;
@@ -134,25 +132,26 @@ nav a:hover {
 
 
 #roundResult button {
-    background-color: #1b1464; /* Change background color */
+    background-color: rgba(0, 0, 0, 0.3); /* Change background color */
     color: white; /* Change text color */
-    border: 3px solid rgba(0, 255, 197, 0.71); /* Remove border */
+    border: 3px solid rgba(20, 39, 35, 0.73); /* Remove border */
     border-radius: 5px; /* Add border-radius for rounded corners */
     padding: 10px 20px; /* Add padding */
     font-size: 18px; /* Adjust font size */
     cursor: pointer; /* Add pointer cursor on hover */
     margin-top: 10px; /* Add margin top to create space */
+    transition: background-color 0.3s;
 }
 
 #roundResult button:hover {
-    border-color: rgb(236, 0, 140); /* Change border color on hover */
+    background-color: rgba(0, 0, 0, 0.6); /* Change border color on hover */
 }
 
 
 .bigBox {        /*voit säätää boxin kokoa ja kaikki muut map, score jne.liikku sen mukana */
     width: 80%;
     height: 80%;
-    border: 5px solid rgba(0, 255, 197, 0.71);
+    border: 5px solid rgba(20, 39, 35, 0.73);
     place-self: center;
     border-radius: 20px;
 }

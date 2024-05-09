@@ -1,6 +1,6 @@
 body {
     font-family: "Saira Condensed", sans-serif;
-    background-image: url('../images/Skaihookki_2.png');
+    background-image: url('../images/Skaihookki_4.jpeg');
     background-size: cover;
     min-height: 100vh;
     margin: 0;
@@ -10,11 +10,14 @@ body {
 }
 
 .centerBox {
-    width: 90%; /* Adjust width for different screen sizes */
-    max-width: 400px; /* Limit maximum width */
-    padding: 2%;
-    background-color: rgba(33, 29, 73, 0.877);
-    border: 5px solid rgba(0, 255, 197, 0.71);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    padding: 2%; 
+    background-color: rgba(20, 39, 35, 0.73);
+    border: 5px rgba(20, 39, 35, 0.73);
     backdrop-filter: blur(2px);
     border-radius: 15px;
     text-align: center;
@@ -22,45 +25,51 @@ body {
 
 #kaikkiFontit {
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 input {
-    width: 45%;
+    width: 80%;
     padding: 8px;
     margin: 10px 0;
     box-sizing: border-box;
-    border: 2px solid #ffffff;
+
     border-radius: 4px;
-    background-color: transparent;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.37);
+    color: #ffffff;
 }
 
 button {
-    width: 25%;
+    width: 50%;
     padding: 10px 20px;
     margin-top: 20px;
     font-size: 18px;
-    border: 3px solid #00ffc5;
+    transition: background-color 0.3s;
+    border: 3px solid rgba(20, 39, 35, 0);
     border-radius: 7px;
-    background-color: #1b1464;
+    background-color: rgba(0, 0, 0, 0.3);
     color: #ffffff;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    border-color: rgb(236, 0, 140);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Make form take full width */
+    width: 50%;
 }
 
 .error-message {
     color: red;
-    font-size: 1rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-size: 1rem; /* Sopiva fonttikoko */
+    margin-top: 20px; /* Tilaa virheviestin yläpuolelle */
+    margin-bottom: 10px; /* Tilaa alapuolelle, juuri ennen nappeja */
 }

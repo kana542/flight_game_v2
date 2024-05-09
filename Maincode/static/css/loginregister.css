@@ -1,6 +1,6 @@
 body {
     font-family: "Saira Condensed", sans-serif;
-    background-image: url('../images/Skaihookki_2.png');
+    background-image: url('../images/Skaihookki_4.jpeg');
     background-size: cover;
     min-height: 100vh;
     margin: 0;
@@ -16,8 +16,8 @@ body {
     transform: translate(-50%, -50%);
     width: 20%;
     padding: 2%; 
-    background-color: rgba(33, 29, 73, 0.877);
-    border: 5px solid rgba(0, 255, 197, 0.71);
+    background-color: rgba(20, 39, 35, 0.73);
+    border: 5px rgba(20, 39, 35, 0.73);
     backdrop-filter: blur(2px);
     border-radius: 15px;
     text-align: center;
@@ -36,10 +36,10 @@ input {
     padding: 8px;
     margin: 10px 0;
     box-sizing: border-box;
-    border: 2px solid #ffffff;
+
     border-radius: 4px;
-    background-color: transparent;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.37);
+    color: #ffffff;
 }
 
 button {
@@ -47,15 +47,17 @@ button {
     padding: 10px 20px;
     margin-top: 20px;
     font-size: 18px;
-    border: 3px solid #00ffc5;
+    transition: background-color 0.3s;
+    border: 3px solid rgba(20, 39, 35, 0);
     border-radius: 7px;
-    background-color: #1b1464;
+    background-color: rgba(0, 0, 0, 0.3);
     color: #ffffff;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    border-color: rgb(236, 0, 140);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 form {

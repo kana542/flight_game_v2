@@ -1,10 +1,14 @@
 html, body {
+    font-family: "Saira Condensed", sans-serif;
+    color: white;
+    background-image: url('../images/Skaihookki_3.jpeg');
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color:  #EC008C;
 }
+
 .container {
     width: 100%;
     margin: auto;
@@ -28,30 +32,31 @@ header nav {
     display: flex;
 }
 .tutorial-box {
-    border: 2px solid #738FA7;
+    border: 2px rgba(0, 0, 0, 0.7);
     padding: 20px;
     width: 80%;
     max-width: 600px;
     margin: 20px auto; /* Keskittää elementin sivun keskelle */
-    background-color: #00FFC5;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 .tutorial-box:hover {
     transform: translateY(-5px); /* Nosta lohkoa hieman ylöspäin */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Syvempi varjo hoverilla */
-    border-color: #1B1464; /* Hover-reunaväri */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Syvempi varjo hoverilla */
+    border-color: rgba(27, 20, 99, 0); /* Hover-reunaväri */
 }
 .tutorial-box h2 {
     font-size: 1.8rem;
-    color: #071330; /* Tumma otsikkoväri */
+    color: #ffffff; /* Tumma otsikkoväri */
     margin-bottom: 10px;
     text-align: center;
 }
 .tutorial-box p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #0C4160; /* Tumma teksti */
+    color: #ffffff; /* Tumma teksti */
 }
 ul {
     display: flex;
@@ -76,7 +81,7 @@ nav a:hover {
     color: #738FA7;
 }
 .tutorial-box {
-    border: 2px solid #738FA7;
+    border: 2px solid rgba(3, 0, 0, 0);
     padding: 20px;
     width: 80%;
     max-width: 600px;
@@ -117,10 +122,6 @@ nav a:hover {
     text-align: center;
 }
 
-#score p {
-    font-size: 20px;
-    margin: 0;
-}
 
 #guess-button {
     padding: 10px 20px;
@@ -145,4 +146,23 @@ nav a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#previousPage button, #logOut button {
+    margin-top: -10px;
+}
+
+#previousPage button:hover, #logOut button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
 }

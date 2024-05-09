@@ -5,15 +5,20 @@
     transform: translate(-50%, -50%);
     width: 50%; /* Adjust width as needed */
     padding: 5%; /* Add padding for better appearance */
-    background-color: rgba(240, 240, 240, 0.69);
-    border: 2px solid #333;
-    border-radius: 10px;
+    background-color: rgba(27, 20, 100, 0.73);
+    border: 5px solid rgba(0, 255, 197, 0.71);
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
     text-align: center;
 
 }
 
+#kaikkiFontit {
+    color: white;
+}
+
 .centerBox p {
-    color: #8a0536;
+    color: #ec008c;
 }
 
 h1 {
@@ -25,23 +30,22 @@ button {
     margin-top: 60px; /* Adjust the top margin a    s needed */
     margin: auto;
     font-size: 18px;
-    border: 3px solid black;
+    border: 3px solid #00ffc5;
     border-radius: 7px;
-    background-color: #071330;
-    color: white;
+    background-color: #1b1464;
+    color: #ffffff;
     cursor: pointer;
 }
 
 button:hover {
-    border-color: rgba(255, 255, 255, 0.50); /* Change border color on hover */
+    border-color: rgba(237, 0, 142)
 }
-
 
 body {
     font-family: "Saira Condensed", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-image: url('../images/loginBackground.jpg');
+    background-image: url('../images/Skaihookki_2.png');
     background-size: cover;
 }
 

@@ -15,20 +15,18 @@
     <h1>Kirjaudu</h1>
     <p>Tervetuloa, jos sinulla ei ole vielä käyttäjää voit helposti luoda sen rekisteröimällä!</p>
     <form action="/login" method="post">
-        <label for="username">Käyttäjä:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Salasana:</label>
-        <input type="password" id="password" name="password" required><br><br>
+    <label for="username">Käyttäjä:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Salasana:</label>
+    <input type="password" id="password" name="password" required><br><br>
 
-        {% if error %}
-        <div class="error-message">{{ error }}</div>
-        {% endif %}
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
 
-        <button type="submit">Kirjaudu</button>
-        <a href="/" style="margin-left:10px;">
-            <button type="button">Rekisteröi</button>
-        </a>
-    </form>
+    <button type="submit">Kirjaudu</button>
+</form>
+        <p>Eikö ole tunnusta? <a href="{{ url_for('register') }}">Rekisteröidy tästä</a></p>
     </div>
 </div>
 </body>

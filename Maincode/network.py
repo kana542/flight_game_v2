@@ -9,7 +9,7 @@ def init_db_connection():
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="apple13",
+            password="ROOT",
             database="flight_game"
         )
     except mysql.connector.Error as err:
@@ -49,7 +49,7 @@ app.secret_key = 'ERITTÄIN_VAHVA_AVAIN'
 
 @app.route('/')
 def form():
-    return render_template('signup_page.html')
+    return render_template('login_page.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -107,8 +107,8 @@ def login():
             return redirect(url_for('main_page'))
         else:
             error_message = 'Virheellinen käyttäjänimi ja/tai salasana. Yritä uudelleen.'
-            return render_template('login_page.html', error=error_message)  # Pass the error message to the template
-    return render_template('login_page.html', error=None)  # Initially render the page without errors
+            return render_template('login_page.html', error=error_message)
+    return render_template('login_page.html', error=None)
 
 @app.route('/main_page')
 def main_page():
@@ -117,9 +117,17 @@ def main_page():
     else:
         return redirect(url_for('login'))
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # Handle registration logic here
+        return redirect(url_for('login'))
+    return render_template('signup_page.html')
+
+
 @app.route('/fetch_airport')
 def fetch_airport():
-    data = fetch_random_airport()  # assuming fetch_random_airport is imported
+    data = fetch_random_airport()
     return jsonify(data)
 
 @app.route('/game')

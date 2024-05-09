@@ -1,18 +1,30 @@
+body {
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url('../images/Skaihookki_2.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
 .bigBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 75%;
-    border: 8px solid black;
+    position: relative;
+    width: 20%;
+    height: auto;
+    color: white;
+    background-color: rgba(27, 20, 99, 0.932);
+    border: 5px solid rgba(0, 255, 197, 0.71);
     border-radius: 20px;
     display: flex;
-    flex-wrap: wrap;
-    backdrop-filter: blur(3px);
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    backdrop-filter: blur(3px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #highestScore {
@@ -20,43 +32,49 @@
     margin-top: 2px;
 }
 
-/* Apply styles to h1 and p inside .bigBox */
+#scoreboard {
+    font-size: 30px;
+    margin-top: 2px;
+}
+
+/* Kohdistetaan h1 ja p sisällöt keskelle */
 .bigBox h1, .bigBox p {
-    text-align: center; /* Center text */
-    width: 100%; /* Take full width */
+    text-align: center;
+    width: 100%;
 }
 
-/* Style the table */
+/* Taulukon tyylit */
 .bigBox table {
-    width: 100%; /* Take full width */
-    border-collapse: collapse; /* Collapse table borders */
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
 }
 
-/* Style table header */
+/* Taulukon otsikot */
 .bigBox th {
-    background-color: rgba(242, 242, 242, 0.85); /* Light gray background */
-    padding: 8px; /* Padding */
-
+    background-color: rgba(0, 255, 197, 0.71);
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
 }
 
-/* Style table cells */
+/* Taulukon solut */
 .bigBox td {
-    border: 1px solid #ddd; /* Gray border */
-    padding: 8px; /* Padding */
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #userHighestScore {
     color: white;
 }
-/* Style buttons */
+
+/* Painikkeiden tyylit */
 .bigBox button {
-    margin-top: 10px; /* Add space between buttons */
-}
-
-#previousPage button {
+    margin-top: 10px;
     padding: 10px 20px;
-    margin-top: 60px; /* Adjust the top margin a    s needed */
-    margin: auto;
     font-size: 18px;
     border: 3px solid black;
     border-radius: 7px;
@@ -64,28 +82,11 @@
     color: white;
     cursor: pointer;
 }
-#previousPage button:hover{
-    border-color: rgba(255, 255, 255, 0.50);
-}
-#logOut button {
-    padding: 10px 20px;
-    margin-top: 60px; /* Adjust the top margin a    s needed */
-    margin: auto;
-    font-size: 18px;
-    border: 3px solid black;
-    border-radius: 7px;
-    background-color: #071330;
-    color: white;
-    cursor: pointer;
 
+#previousPage button, #logOut button {
+    margin-top: 20px;
 }
-#logOut button:hover{
-    border-color: rgba(255, 255, 255, 0.50);
-}
-body {
-    font-family: "Saira Condensed", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    background-image: url('../images/loginBackground.jpg');
-    background-size: cover;
+
+#previousPage button:hover, #logOut button:hover {
+    border-color: rgba(255, 255, 255, 0.5);
 }

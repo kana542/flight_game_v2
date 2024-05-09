@@ -1,0 +1,66 @@
+body {
+    font-family: "Saira Condensed", sans-serif;
+    background-image: url('../images/Skaihookki_2.png');
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerBox {
+    width: 90%; /* Adjust width for different screen sizes */
+    max-width: 400px; /* Limit maximum width */
+    padding: 2%;
+    background-color: rgba(33, 29, 73, 0.877);
+    border: 5px solid rgba(0, 255, 197, 0.71);
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    text-align: center;
+}
+
+#kaikkiFontit {
+    color: white;
+}
+
+input {
+    width: 45%;
+    padding: 8px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    background-color: transparent;
+    color: white;
+}
+
+button {
+    width: 25%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    border: 3px solid #00ffc5;
+    border-radius: 7px;
+    background-color: #1b1464;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: rgb(236, 0, 140);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Make form take full width */
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyhawk - tutorial</title>
-    <link rel="stylesheet" href="../static/css/Style_2.css">
-</head>
+    <link rel="stylesheet" href="../static/css/Tutorial.css">
 <body>
     <header>
         <h1>SKYHAWK, {{ username }}</h1> <!--"{{ username }}" on session testi voi poistaa lopullisessa koodissa-->
         <nav>
             <ul>
-                <li><a href="/Main_page">HOME</a></li>
-                <li><a href="/highscore_page">SCOREBOARD</a></li>
-                <li><a href="/tutorial">TUTORIAL</a></li>
+                <li><a href="Front_page.html">HOME</a></li>
+                <li><a href="Highscore_page_test.html">SCOREBOARD</a></li>
+                <li><a href="Tutorial.html">TUTORIAL</a></li>
             </ul>
         </nav>
     </header>
     <div class="tutorial-box">
         <h2>Idea</h2>
-        <p>Löydä oikea lento- tai helikopterikenttä. Pisteitä jaetaan sen perusteella, kuinka lähelle arvauksesi osuus.</p>
+        <p>Pelaajan tehtävänä on arvata helikopteri- tai lentokentän sijainti Euroopan alueelta. Pelaaja asetetaan satunnaiseen paikkaan, jossa on street view näkymä.
+        Annetun näkymän perusteella pelaajan tulee arvata paikka johon hänet on sijoituettu. Arvauksesta saa 0-1000 pistettä sen perusteella, kuinka lähelle arvaus on osunut.
+        Pelissä on viisi kierrosta ja maksimi pistemäärä on 5000 pistettä.</p>
     </div>
     <div class="tutorial-box">
-        <h2>Nappulat joita käytät</h2>
-        <p>Liikuta hiirtä haluttuun paikkaan ja hiiren klikkauksella teet lopullisen valinnan.
-            Mikäli karttapohjat on sulle tuttuja niin teidät miten ne toimivat. Kertauksena: pidä hiiren painike pohjassa ja raahaa karttaa.
-        </p>
+        <h2>Näppäimet</h2>
+        <p>Pelaamiseen tarvitset ainoastaan hiiren. Hiiren vasemmalla klikillä teet valintoja samalla tavalla kuin normaalisti hiirtä käyttäessä. </p>
     </div>
     <div class="tutorial-box">
-        <h2>Otsikko 3</h2>
-        <p>Vielä lisää tietoa tässä kolmannessa boksissa. Täydennä tutorialiasi tarpeen mukaan.</p>
+        <h2>Street view & arvauksen asettaminen</h2>
+        <p>Kun aloitat arvaamaan maata, voit siirtyä katukuvassa painamalla vasemman hiiren klikkauksen pohjaan ja raahaat kuvaa eri suuntaan.
+            Kun vapautat hiiren, katunäkymä päivittyy uudelleen. Kun luulet tietäväsi missä päin maailmaa olet, voivat asettaa osoittimen kerttaan merkiksi. Tämän jälkeen paina "guess"- nappia.
+        Score- kohtaan päivittyy pistemäärä.</p>
     </div>
 </body>
 </html>

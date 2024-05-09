@@ -12,6 +12,7 @@
 <body>
 <div class="centerBox">
     <div id="kaikkiFontit">
+<<<<<<< HEAD
         <h1>Kirjaudu</h1>
         <form action="/login" method="post">
             <label for="username">Käyttäjä:</label>
@@ -25,6 +26,23 @@
             <button type="submit">Kirjaudu</button>
             <p>Uusi käyttäjä? Rekisteröidy <a href="/">tästä!</a></p>
         </form>
+=======
+    <h1>Kirjaudu</h1>
+    <p>Tervetuloa, jos sinulla ei ole vielä käyttäjää voit helposti luoda sen rekisteröimällä!</p>
+    <form action="/login" method="post">
+    <label for="username">Käyttäjä:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Salasana:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+
+    <button type="submit">Kirjaudu</button>
+</form>
+        <p>Eikö ole tunnusta? <a href="{{ url_for('register') }}">Rekisteröidy tästä</a></p>
+>>>>>>> d5b039e32e122e6c45272cd0eda041a07f7d80b2
     </div>
 </div>
 </body>

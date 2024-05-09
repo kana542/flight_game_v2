@@ -36,19 +36,15 @@ header nav {
     padding: 20px;
     width: 80%;
     max-width: 600px;
-<<<<<<< HEAD
     margin: 20px auto;
     background-color: #00FFC5;
-=======
     margin: 20px auto; /* Keskittää elementin sivun keskelle */
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
->>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 .tutorial-box:hover {
-<<<<<<< HEAD
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     border-color: #1B1464;
@@ -56,7 +52,6 @@ header nav {
 .tutorial-box h2 {
     font-size: 1.8rem;
     color: #071330;
-=======
     transform: translateY(-5px); /* Nosta lohkoa hieman ylöspäin */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Syvempi varjo hoverilla */
     border-color: rgba(27, 20, 99, 0); /* Hover-reunaväri */
@@ -64,7 +59,6 @@ header nav {
 .tutorial-box h2 {
     font-size: 1.8rem;
     color: #ffffff; /* Tumma otsikkoväri */
->>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
     margin-bottom: 10px;
     text-align: center;
 }

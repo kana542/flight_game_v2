@@ -20,7 +20,15 @@ h1 {
 }
 
 button {
-  margin-top: 10px; /* Add space between the form elements */
+    padding: 10px 20px;
+    margin-top: 60px; /* Adjust the top margin a    s needed */
+    margin: auto;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 7px;
+    background-color: #071330;
+    color: white;
+    cursor: pointer;
 }
 
 button:hover {

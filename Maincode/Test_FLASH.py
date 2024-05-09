@@ -89,7 +89,7 @@ def fetch_airport():
 @app.route('/Peli')
 def Peli():
     if 'username' in session:
-        return render_template('BUENIS.html', username=session['username'], highscore=session.get('highscore'))
+        return render_template('Game.html', username=session['username'], highscore=session.get('highscore'))
     else:
         return redirect(url_for('login'))
 

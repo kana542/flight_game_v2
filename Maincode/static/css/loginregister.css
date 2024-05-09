@@ -14,9 +14,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 20%;
     padding: 2%; 
-    background-color: rgba(27, 20, 100, 0.73);
+    background-color: rgba(33, 29, 73, 0.877);
     border: 5px solid rgba(0, 255, 197, 0.71);
     backdrop-filter: blur(2px);
     border-radius: 15px;
@@ -63,4 +63,11 @@ form {
     flex-direction: column;
     align-items: center;
     width: 50%;
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem; /* Sopiva fonttikoko */
+    margin-top: 20px; /* Tilaa virheviestin yläpuolelle */
+    margin-bottom: 10px; /* Tilaa alapuolelle, juuri ennen nappeja */
 }

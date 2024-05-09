@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Kirjaudu</title>
-    <link rel="stylesheet" href="../static/css/loginStyle.css">
+    <link rel="stylesheet" href="../static/css/loginregister.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="centerBox">
     <div id="kaikkiFontit">
-        <h1>Kirjaudu</h1>
+        <h1>Log In</h1>
         <form action="/login" method="post">
-            <label for="username">Käyttäjä:</label>
+            <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
-            <label for="password">Salasana:</label>
+            <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
 
             {% if error %}
             <div class="error-message">{{ error }}</div>
             {% endif %}
-            <button type="submit">Kirjaudu</button>
-            <p>Uusi käyttäjä? Rekisteröidy <a href="/register">tästä!</a></p>
+            <button type="submit">Log In</button>
+            <p>New user? Register <a href="/register">here!</a></p>
         </form>
     </div>
 </div>

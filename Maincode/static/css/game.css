@@ -117,8 +117,9 @@ nav a:hover {
 #roundResult {
     display: none;
     position: absolute;
-    right: 5px;
-    top: 17%;
+    right: 50%;
+    left: 40%;
+    top: 50%;
     transform: translate(0%, -50%);
     z-index: 500;
     background-color: #1b1464;
@@ -127,8 +128,10 @@ nav a:hover {
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center; /* Center align content horizontally */
+    text-align: center;
+    width: 15%;
 }
+
 
 #roundResult button {
     background-color: #1b1464; /* Change background color */

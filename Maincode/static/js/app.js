@@ -189,7 +189,7 @@ const gameState = {
 
     endGame: function() {
         const score = parseInt(document.getElementById('score-value').textContent);
-        alert("Peli päättyi! Loppupisteesi ovat " + score);
+        alert("Game Over! your score is: " + score);
         document.getElementById('continue-button').innerText = "New Game";
         document.getElementById('main-menu-button').style.display = 'inline';
         document.getElementById('roundResult').style.display = 'block';
@@ -206,7 +206,7 @@ const gameState = {
             .then(data => {
                 console.log('Success:', data);
                 if (data.updated) {
-                    alert("Uusi Korkeintulos Saavutettu!");
+                    alert("Highscore Reached!");
                 }
             })
             .catch((error) => console.error('Error:', error));

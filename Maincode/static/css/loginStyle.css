@@ -37,4 +37,9 @@ body {
   background-size: cover;
 }
 
-
+.error-message {
+    color: red;
+    font-size: 1rem; /* Appropriate font size */
+    margin-top: 20px; /* Space above the error message */
+    margin-bottom: 10px; /* Space below the error message, just above the buttons */
+}

@@ -6,23 +6,29 @@
     <link rel="stylesheet" href="../static/css/loginStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-    <div class="centerBox">
-        <h1>Kirjaudu</h1>
-        <p>Tervetuloa, jos sinulla ei ole vielä käyttäjää voit helposti luoda sen rekisteröimällä!</p>
-        <form action="/login" method="post">
-            {% if error %}
-            <div style="color: red;">{{ error }}</div>
-            {% endif %}
-            <label for="username">Käyttäjä:</label>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Salasana:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <button type="submit">Kirjaudu</button>
-            <a href="/" style="margin-left:10px;"><button type="button">Rekisteröi</button></a>
-        </form>
-    </div>
+<div class="centerBox">
+    <h1>Kirjaudu</h1>
+    <p>Tervetuloa, jos sinulla ei ole vielä käyttäjää voit helposti luoda sen rekisteröimällä!</p>
+    <form action="/login" method="post">
+        <label for="username">Käyttäjä:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Salasana:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        <button type="submit">Kirjaudu</button>
+        <a href="/" style="margin-left:10px;">
+            <button type="button">Rekisteröi</button>
+        </a>
+    </form>
+
+</div>
 </body>
 </html>

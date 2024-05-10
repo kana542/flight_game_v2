@@ -4,6 +4,7 @@ const gameState = {
     map: null,
     marker: null,
     guessMade: false,
+    markerPlaced: false,
     roundData: {
         streetViewLocation: null,
         guessLocation: null
@@ -17,6 +18,10 @@ const gameState = {
     setupUI: function() {
         document.getElementById("continue-button").innerText = "Continue";
         document.getElementById("guess-button").disabled = true;
+        document.getElementById("endResult").style.display = 'none';
+        document.getElementById("roundResult").style.display = 'none';
+        document.getElementById("score").style.display = 'block';
+        document.getElementById('main-menu-button').style.display = 'none';
     },
 
     startRound: function(latitude, longitude) {
@@ -187,12 +192,15 @@ const gameState = {
         }
     },
 
-    endGame: function() {
+    endGame: function () {
         const score = parseInt(document.getElementById('score-value').textContent);
-        alert("Peli päättyi! Loppupisteesi ovat " + score);
-        document.getElementById('continue-button').innerText = "New Game";
-        document.getElementById('main-menu-button').style.display = 'inline';
-        document.getElementById('roundResult').style.display = 'block';
+
+        // Näytä loppupisteet endResult-osassa
+        document.getElementById('end-score-value').textContent = score;
+        document.getElementById('endResult').style.display = 'block';
+
+        // Piilota muut osiot
+        document.getElementById('roundResult').style.display = 'none';
         document.getElementById('score').style.display = 'none';
 
         fetch('http://127.0.0.1:5000/update_highscore', {
@@ -200,20 +208,21 @@ const gameState = {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({score: score})
+            body: JSON.stringify({ score: score })
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                if (data.updated) {
-                    alert("Uusi Korkeintulos Saavutettu!");
-                }
-            })
-            .catch((error) => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            if (data.updated) {
+                alert("Uusi Korkeintulos Saavutettu!");
+            }
+        })
+        .catch((error) => console.error('Error:', error));
     }
 };
 
-document.getElementById('guess-button').addEventListener('click', function() {
+// Arvauspainike
+document.getElementById('guess-button').addEventListener('click', function () {
     if (!gameState.guessMade && gameState.markerPlaced) {
         gameState.drawLine();
         this.disabled = true;
@@ -222,8 +231,8 @@ document.getElementById('guess-button').addEventListener('click', function() {
         const distance = gameState.calculateDistance(gameState.roundData.streetViewLocation, gameState.roundData.guessLocation);
         const score = gameState.calculateScore(distance);
 
-        document.getElementById('distanceDisplay').innerText = "Etäisyys: " + distance.toFixed(2) + " km";
-        document.getElementById('scoreDisplay').innerText = "Pisteet: " + score;
+        document.getElementById('distanceDisplay').innerText = "Distance: " + distance.toFixed(2) + " km";
+        document.getElementById('scoreDisplay').innerText = "Points: " + score;
 
         gameState.updateScore(score);
 
@@ -232,7 +241,8 @@ document.getElementById('guess-button').addEventListener('click', function() {
     }
 });
 
-document.getElementById('continue-button').addEventListener('click', function() {
+// Jatka-painike
+document.getElementById('continue-button').addEventListener('click', function () {
     if (this.innerText === "New Game") {
         document.getElementById('score-value').textContent = '0';
         document.getElementById('round-number').textContent = '1';
@@ -254,6 +264,34 @@ document.getElementById('continue-button').addEventListener('click', function() 
     } else {
         gameState.nextRound();
     }
+});
+
+// Uusi peli -painike
+document.getElementById('new-game').addEventListener('click', function () {
+    document.getElementById('score-value').textContent = '0';
+    document.getElementById('round-number').textContent = '1';
+
+    document.getElementById('endResult').style.display = 'none';
+    document.getElementById('score').style.display = 'block';
+
+    gameState.currentRound = 1;
+    gameState.guessMade = false;
+    gameState.markerPlaced = false;
+
+    if (gameState.marker) {
+        gameState.marker.setMap(null);
+        gameState.marker = null;
+    }
+
+    gameState.startGame();
+});
+
+document.getElementById('main-menu').addEventListener('click', function () {
+    window.location.href = '/main_page';
+});
+
+document.getElementById('exit-button').addEventListener('click', function() {
+    window.location.href = '/main_page';
 });
 
 gameState.startGame();

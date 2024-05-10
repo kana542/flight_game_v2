@@ -1,11 +1,26 @@
+:root {
+    --background-dark: rgba(20, 39, 35, 0.73);
+    --text-color: white;
+    --button-background: rgba(0, 0, 0, 0.3);
+    --button-hover-background: rgba(0, 0, 0, 0.6);
+    --input-background: rgba(0, 0, 0, 0.37);
+    --error-color: red;
+}
+
+img {
+    background-size: cover;
+}
+
 body {
     font-family: "Saira Condensed", sans-serif;
     background-size: cover;
+    background-position: center;
     min-height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--text-color);
 }
 
 .centerBox {
@@ -13,17 +28,17 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20%;
-    padding: 2%; 
-    background-color: rgba(20, 39, 35, 0.73);
-    border: 5px rgba(20, 39, 35, 0.73);
+    width: 90%;
+    max-width: 400px;
+    padding: 2%;
+    background-color: var(--background-dark);
+    border: 5px solid transparent;
     backdrop-filter: blur(2px);
     border-radius: 15px;
     text-align: center;
 }
 
 #kaikkiFontit {
-    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,10 +50,10 @@ input {
     padding: 8px;
     margin: 10px 0;
     box-sizing: border-box;
-
     border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.37);
-    color: #ffffff;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    border: none;
 }
 
 button {
@@ -47,28 +62,27 @@ button {
     margin-top: 20px;
     font-size: 18px;
     transition: background-color 0.3s;
-    border: 3px solid rgba(20, 39, 35, 0);
+    border: 3px solid transparent;
     border-radius: 7px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    background-color: var(--button-background);
+    color: var(--text-color);
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--button-hover-background);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
-}
-
-.error-message {
-    color: red;
-    font-size: 1rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    width: 80%;
 }

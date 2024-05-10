@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <title>Skyhawk - Game</title>
@@ -7,18 +7,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<img src="{{ url_for('static', filename='images/Skyhawk_kansikuva.jpeg') }}" id="coverImage"/>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main_page.css') }}">
 </head>
-<body>
-<nav class="menu">
-    <ul>
-        <li><a href="/game">PLAY</a></li>
-        <li><a href="/highscore_page">SCOREBOARD</a></li>
-        <li><a href="/tutorial">TUTORIAL</a></li>
-        <li><a href="/logout">LOGOUT</a></li>
-    </ul>
-</nav>
+<body style="background-image: url('../static/images/Skaihookki_4.jpeg');">
+    <div class="centerBox">
+        <h1 class="menu-title">SKYHAWK</h1>
+        <nav class="menu">
+            <ul>
+                <li><button onclick="location.href='/game'">PLAY</button></li>
+                <li><button onclick="location.href='/highscore_page'">SCOREBOARD</button></li>
+                <li><button onclick="location.href='/tutorial'">TUTORIAL</button></li>
+                <li><button onclick="location.href='/logout'">LOGOUT</button></li>
+            </ul>
+        </nav>
+    </div>
 </body>
 </html>

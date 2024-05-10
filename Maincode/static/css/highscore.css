@@ -1,30 +1,40 @@
+:root {
+    --primary-color: rgba(27, 20, 99, 0.932);
+    --secondary-color: rgba(0, 255, 197, 0.71);
+    --highlight-color: rgb(236, 0, 140);
+    --text-color: white;
+    --button-bg: #1b1464;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pääasialliset asetukset */
 body {
     font-family: "Saira Condensed", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     background-image: url('../images/Skaihookki_2.png');
     background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: var(--text-color);
 }
 
+/* Keskitetty isompi laatikko */
 .bigBox {
-    position: relative;
-    width: 20%;
-    height: auto;
-    color: white;
-    background-color: rgba(27, 20, 99, 0.932);
-    border: 5px solid rgba(0, 255, 197, 0.71);
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: var(--primary-color);
+    border: 5px solid var(--secondary-color);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
+    text-align: center;
 }
 
 #highestScore {
@@ -42,17 +52,18 @@ body {
     width: 100%;
 }
 
+/* Pöytä */
 .bigBox table {
-    width: 50%;
+    width: 80%;
+    max-width: 400px;
     border-collapse: collapse;
     margin: 20px auto;
 }
 
 .bigBox th {
-    background-color: rgba(0, 255, 197, 0.71);
+    background-color: var(--secondary-color);
     padding: 8px;
     text-align: center;
-    vertical-align: middle;
     font-weight: bold;
 }
 
@@ -64,24 +75,38 @@ body {
 }
 
 #userHighestScore {
-    color: white;
+    color: var(--text-color);
 }
 
+/* Nappi */
 .bigBox button {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 18px;
-    border: 3px solid rgba(0, 255, 197, 0.71);
+    border: 3px solid var(--secondary-color);
     border-radius: 7px;
-    background-color: #1b1464;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--text-color);
     cursor: pointer;
-}
-
-#previousPage button, #logOut button {
-    margin-top: 20px;
+    transition: border-color 0.3s;
 }
 
 #previousPage button:hover, #logOut button:hover {
-    border-color: rgb(236, 0, 140);
+    border-color: var(--highlight-color);
+}
+
+/* Responsiivisuus */
+@media (max-width: 600px) {
+    .bigBox {
+        width: 90%;
+        padding: 5%;
+    }
+
+    .bigBox table {
+        width: 100%;
+    }
+
+    button {
+        width: 80%;
+    }
 }

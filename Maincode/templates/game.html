@@ -2,38 +2,42 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
-    <title>GeoGuessr Clone</title>
+    <title>Skyhawk - Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/game.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poetsen+One&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="bigBox">
-        <div id="street-view">
-            <div id="map"></div>
-            <div id="score">
-                <p>Score: <span id="score-value">0</span></p>
-                <p>Round: <span id="round-number">1</span></p>
-                <button id="guess-button">Guess</button></div>
-            <div id="roundResult">
-                <h2>Arvauksen Tulos</h2>
-                <p id="distanceDisplay">Distance: </p>
-                <p id="scoreDisplay">Round Scpre: </p>
-                <button id="continue-button">Continue</button>
-                <button id="main-menu-button" style="display:none;" onclick="window.location.href='/main_page'">Päävalikko</button>
+    <div class="container">
+        <div class="bigBox">
+            <div id="street-view">
+                <button id="exit-button">Exit</button>
+                <div id="map"></div>
+                <div id="score">
+                    <p>Points: <span id="score-value">0</span></p>
+                    <p>Round: <span id="round-number">1</span></p>
+                    <button id="guess-button">Guess</button>
+                </div>
+                <div id="roundResult">
+                    <h2>Round Results</h2>
+                    <p id="distanceDisplay">Distance:</p>
+                    <p id="scoreDisplay">Points:</p>
+                    <button id="continue-button">Continue</button>
+                    <button id="main-menu-button" onclick="window.location.href='/main_page'">Main Menu</button>
+                </div>
+                <div id="endResult">
+                    <h1>Game Over!</h1>
+                    <p>Final Score: <span id="end-score-value"></span></p>
+                    <button id="new-game" onclick="window.location.href='/game'">New Game</button>
+                    <button id="main-menu" onclick="window.location.href='/main_page'">Main Menu</button>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div id="endResult">
-                <p>Score: <span id="end-score-value"></span></p>
-                <button id="new-game">New Game</button>
-                <button id="main-menu">Main Menu</button>
-            </div>
-        </div>
-        </div>
-        <script src="../static/js/app.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuEzavHpVwtAuO9v5oyFBEEsbnoH9dvCc&callback=initMap"></script>
+    <script src="../static/js/app.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaL3BA-S0Q3DKyGnxUmnRKOg3GIaTaIrk&callback=initMap"></script>
 </body>
 </html>

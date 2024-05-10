@@ -1,76 +1,88 @@
-html, body {
+:root {
+    --primary-color: #00FFC5;
+    --secondary-color: #071330;
+    --accent-color: #738FA7;
+    --background-color: rgba(0, 0, 0, 0.7);
+    --header-background: #C3CEDA;
+    --font-color: white;
+    --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
     font-family: "Saira Condensed", sans-serif;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: var(--font-color);
     background-image: url('../images/Skaihookki_3.jpeg');
+    background-size: cover;
     height: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color:  #EC008C;
+    overflow: auto; /* Muutettu hidden -> auto */
+    background-color: #EC008C;
 }
 
 .container {
     width: 100%;
     margin: auto;
 }
+
 .div1 {
-    background-color: #00FFC5;
+    background-color: var(--primary-color);
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
     text-align: center;
 }
+
 header {
-    background-color: #C3CEDA;
+    background-color: var(--header-background);
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 header nav {
-    float: right;
     display: flex;
 }
+
 .tutorial-box {
-    border: 2px rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--background-color);
     padding: 20px;
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
-    background-color: #00FFC5;
-    margin: 20px auto; /* Keskittää elementin sivun keskelle */
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--background-color);
     backdrop-filter: blur(4px);
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: var(--box-shadow);
 }
+
 .tutorial-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     border-color: #1B1464;
 }
+
 .tutorial-box h2 {
     font-size: 1.8rem;
-    color: #071330;
-    transform: translateY(-5px); /* Nosta lohkoa hieman ylöspäin */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Syvempi varjo hoverilla */
-    border-color: rgba(27, 20, 99, 0); /* Hover-reunaväri */
-}
-.tutorial-box h2 {
-    font-size: 1.8rem;
-    color: #ffffff; /* Tumma otsikkoväri */
+    color: var(--font-color);
     margin-bottom: 10px;
     text-align: center;
 }
+
 .tutorial-box p {
     font-size: 1rem;
     line-height: 1.6;
-<<<<<<< HEAD
-    color: #0C4160;
-=======
-    color: #ffffff; /* Tumma teksti */
->>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
+    color: var(--font-color);
 }
+
 ul {
     display: flex;
     list-style-type: none;
@@ -78,11 +90,13 @@ ul {
     padding: 1rem;
     margin: 0;
 }
+
 li {
-    margin-left: 1rem ;
+    margin-left: 1rem;
 }
+
 li a {
-    color: #071330;
+    color: var(--secondary-color);
     width: 100%;
     height: 3rem;
     display: block;
@@ -90,15 +104,9 @@ li a {
     line-height: 3rem;
     text-decoration: none;
 }
+
 nav a:hover {
-    color: #738FA7;
-}
-.tutorial-box {
-    border: 2px solid rgba(3, 0, 0, 0);
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: var(--accent-color);
 }
 
 #street-view {
@@ -115,8 +123,6 @@ nav a:hover {
     z-index: 5;
     border: 6px solid black;
     border-radius: 25px;
-<<<<<<< HEAD
-=======
 }
 
 #score {
@@ -137,16 +143,15 @@ nav a:hover {
     text-align: center;
 }
 
-
 #guess-button {
     padding: 10px 20px;
-    margin-top: 60px; /* Säädä tarvittavan tilan mukaan */
+    margin-top: 60px;
     margin: auto;
     font-size: 18px;
     border: none;
     border-radius: 7px;
-    background-color: #071330;
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
     cursor: pointer;
 }
 
@@ -160,25 +165,24 @@ nav a:hover {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--box-shadow);
 }
 
-button {
-    margin-top: 10px;
+#previousPage {
+    width: 200px;
     padding: 10px 20px;
+    margin-top: 20px;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.7);
+    border: 3px solid transparent;
     border-radius: 7px;
-    color: white;
-    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--font-color);
+    backdrop-filter: blur(4px);
     transition: background-color 0.3s;
+    cursor: pointer;
+    display: block;
 }
 
-#previousPage button, #logOut button {
-    margin-top: -10px;
-}
-
-#previousPage button:hover, #logOut button:hover {
-    background-color: rgba(0, 0, 0, 0.6);
->>>>>>> f989b74d5cdf27aa8e5810cefa83626b6aad8516
+#previousPage button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
 }

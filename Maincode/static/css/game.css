@@ -1,4 +1,3 @@
-/* Muuttujat värejä ja tyyliä varten */
 :root {
     --background-color: rgba(20, 39, 35, 0.73);
     --border-color: rgba(20, 39, 35, 0.73);
@@ -8,8 +7,9 @@
 }
 
 /* Pääasialliset asetukset */
-html, body {
+html, body, .container, .bigBox {
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -21,40 +21,24 @@ html, body {
     background-position: center;
 }
 
-/* Containerin tyylit */
-.container {
-    display: grid;
-    place-items: center;
-    height: 100vh;
-}
-
-.bigBox {
-    width: 80%;
-    height: 80%;
-    border: 5px solid var(--border-color);
-    border-radius: 20px;
-    background-color: var(--background-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 #street-view {
-    height: 100%;  /* Muuttamaton, mutta varmistetaan että täyttää koko tilan */
-    width: 100%;  /* Muuttamaton, mutta varmistetaan että täyttää koko tilan */
-    position: relative;
-    border-radius: 17px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    border-radius: 0;
 }
 
-/* Kartta */
 #map {
     position: absolute;
-    bottom: 15px; /* kiinteät pikselit selaimen alareunasta */
-    right: 15px; /* kiinteät pikselit selaimen oikeasta reunasta */
-    width: 400px; /* kiinteä leveys pikseleinä */
-    height: 500px; /* kiinteä korkeus pikseleinä */
+    bottom: 15px;
+    right: 15px;
+    width: 400px;
+    height: 500px;
     z-index: 5;
     border: 3px solid var(--border-color);
     border-radius: 15px;
@@ -62,9 +46,9 @@ html, body {
 
 #score {
     position: absolute;
-    bottom: 535px; /* kiinteät pikselit selaimen yläreunasta */
-    right: 15px; /* kiinteät pikselit selaimen oikeasta reunasta */
-    width: 125px; /* kiinteä leveys pikseleinä */
+    bottom: 535px;
+    right: 15px;
+    width: 125px;
     padding: 10px;
     background-color: var(--background-color);
     border: 3px solid var(--border-color);

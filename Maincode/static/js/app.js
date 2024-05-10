@@ -213,9 +213,6 @@ const gameState = {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            if (data.updated) {
-                alert("Uusi Korkeintulos Saavutettu!");
-            }
         })
         .catch((error) => console.error('Error:', error));
     }

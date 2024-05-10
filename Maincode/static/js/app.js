@@ -194,6 +194,7 @@ const gameState = {
 
     endGame: function () {
         const score = parseInt(document.getElementById('score-value').textContent);
+<<<<<<< HEAD
 
         // Näytä loppupisteet endResult-osassa
         document.getElementById('end-score-value').textContent = score;
@@ -201,6 +202,12 @@ const gameState = {
 
         // Piilota muut osiot
         document.getElementById('roundResult').style.display = 'none';
+=======
+        alert("Game Over! your score is: " + score);
+        document.getElementById('continue-button').innerText = "New Game";
+        document.getElementById('main-menu-button').style.display = 'inline';
+        document.getElementById('roundResult').style.display = 'block';
+>>>>>>> f654d39805af426901c9466f0c8f6a166bf9936b
         document.getElementById('score').style.display = 'none';
 
         fetch('http://127.0.0.1:5000/update_highscore', {
@@ -210,6 +217,7 @@ const gameState = {
             },
             body: JSON.stringify({ score: score })
         })
+<<<<<<< HEAD
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
@@ -218,6 +226,16 @@ const gameState = {
             }
         })
         .catch((error) => console.error('Error:', error));
+=======
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data.updated) {
+                    alert("Highscore Reached!");
+                }
+            })
+            .catch((error) => console.error('Error:', error));
+>>>>>>> f654d39805af426901c9466f0c8f6a166bf9936b
     }
 };
 

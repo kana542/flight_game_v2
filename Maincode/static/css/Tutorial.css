@@ -67,7 +67,7 @@ header nav {
 .tutorial-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    border-color: #1B1464;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .tutorial-box h2 {

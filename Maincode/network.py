@@ -9,7 +9,7 @@ def init_db_connection():
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="apple13",
+            password="ROOT",
             database="flight_game"
         )
     except mysql.connector.Error as err:

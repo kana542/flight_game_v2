@@ -3,13 +3,13 @@ from werkzeug.security import generate_password_hash
 from mysql.connector import IntegrityError, connect
 import mysql.connector
 from mysql.connector import Error
-#bueen
+
 def init_db_connection():
     try:
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="ROOT",
+            password="apple13",
             database="flight_game"
         )
     except mysql.connector.Error as err:
